@@ -1,0 +1,38 @@
+<div class="mat-elevation-z6 p-4">
+  <span class="mat-headline-5">Cadastro de Matrícula</span>
+  <form class="mt-4" [formGroup]="formRegistration" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field>
+          <mat-label>ID do Funcionário</mat-label>
+          <mat-select formControlName="employeeId">
+            <mat-option *ngFor="let employee of employees" [value]="employee.id">
+              ID: {{employee.id}} | {{ employee.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="submitted && validations['employeeId']['errors']">O ID do Funcionário é obrigatório.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field>
+          <mat-label>ID da Empresa</mat-label>
+          <mat-select formControlName="establishmentId">
+            <mat-option *ngFor="let establishment of establishments" [value]="establishment.id">
+              ID: {{establishment.id}} | {{ establishment.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="submitted && validations['employeeId']['errors']">O ID do Funcionário é obrigatório.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm text-end">
+        <button mat-flat-button color="primary" type="submit" mat-dialog-close="true">Salvar</button>
+      </div>
+    </div>
+  </form>
+</div>

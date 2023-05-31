@@ -1,0 +1,83 @@
+<div class="container mat-elevation-z6 p-4">
+  <span class="mat-headline-5">Atualização de Empresa</span>
+  <form class="mt-4" [formGroup]="formEstablishment" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input matInput id="name" required maxlength="255" formControlName="name">
+          <mat-error *ngIf="submitted && validations['name']['errors']">O nome é obrigatório.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm">
+        <mat-form-field>
+          <mat-label>Telefone</mat-label>
+          <input matInput id="phone" required maxlength="255" formControlName="phone">
+          <mat-error *ngIf="submitted && validations['name']['errors']">O telefone é obrigatório.</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field>
+          <mat-label>Endereço</mat-label>
+          <input matInput id="address" required maxlength="255" formControlName="address">
+          <mat-error *ngIf="submitted && validations['name']['errors']">O endereço é obrigatório.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm">
+        <div class="row">
+          <div class="col-sm">
+            <mat-form-field>
+              <mat-label>Número</mat-label>
+              <input matInput id="number" required maxlength="255" formControlName="number">
+              <mat-error *ngIf="submitted && validations['name']['errors']">O número é obrigatório.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm">
+            <mat-form-field>
+              <mat-label>Complemento</mat-label>
+              <input matInput id="complement" required maxlength="255" formControlName="complement">
+              <mat-error *ngIf="submitted && validations['name']['errors']">O complemento é obrigatório.</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field>
+          <mat-label>Bairro</mat-label>
+          <input matInput id="neighborhood" required maxlength="255" formControlName="neighborhood">
+          <mat-error *ngIf="submitted && validations['name']['errors']">O bairro é obrigatório.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm">
+        <mat-form-field>
+          <mat-label>CEP</mat-label>
+          <input matInput id="cep" required maxlength="255" formControlName="cep">
+          <mat-error *ngIf="submitted && validations['name']['errors']">O CEP é obrigatório.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm">
+        <mat-form-field>
+          <mat-label>Cidade</mat-label>
+          <input matInput id="city" required maxlength="255" formControlName="city">
+          <mat-error *ngIf="submitted && validations['name']['errors']">A cidade é obrigatória.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-sm">
+        <mat-form-field>
+          <mat-label>Estado</mat-label>
+          <input matInput id="state" required maxlength="255" formControlName="state">
+          <mat-error *ngIf="submitted && validations['name']['errors']">O estado é obrigatório.</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm text-end">
+        <button mat-flat-button color="primary" type="submit">Salvar</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,85 @@
+<div class="mat-elevation-z8 p-2">
+  <div class="text-end">
+    <a href="#" [routerLink]="['/employee/add/']" class="btn text-end">
+      <mat-icon aria-hidden="false" fontIcon="add_circle"></mat-icon>
+    </a>
+  </div>
+  <div class="table-container">
+    <table [dataSource]="dataSource" mat-table>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID</th>
+        <td mat-cell *matCellDef="let employee"> {{employee.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nome</th>
+        <td mat-cell *matCellDef="let employee"> {{employee.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Telefone</th>
+        <td mat-cell *matCellDef="let employee"> {{employee.phone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef> Função</th>
+        <td mat-cell *matCellDef="let employee"> {{employee.role}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Endereço</th>
+        <td mat-cell *matCellDef="let employee"> {{employee.address.address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef> Número</th>
+        <td mat-cell *matCellDef="let employee"> {{employee.address.number}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="neighborhood">
+        <th mat-header-cell *matHeaderCellDef> Bairro</th>
+        <td mat-cell *matCellDef="let employee"> {{employee.address.neighborhood}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="complement">
+        <th mat-header-cell *matHeaderCellDef> Complemento</th>
+        <td mat-cell *matCellDef="let employee"> {{employee.address.complement}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef> Cidade</th>
+        <td mat-cell *matCellDef="let employee"> {{employee.address.city}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> Estado</th>
+        <td mat-cell *matCellDef="let employee"> {{employee.address.state}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Ações</th>
+        <td mat-cell *matCellDef="let employee">
+          <a (click)="openViewDialog(employee.id)" class="btn">
+            <mat-icon aria-hidden="false" fontIcon="info"></mat-icon>
+          </a>
+          <a href="#" [routerLink]="['/employee/edit/', employee.id]" class="btn">
+            <mat-icon aria-hidden="false" fontIcon="edit"></mat-icon>
+          </a>
+          <a (click)="openDeleteDialog(employee.id)" class="btn">
+            <mat-icon aria-hidden="false" fontIcon="delete"></mat-icon>
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator
+      [length]="employeesLength"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10]"
+      (page)="onPageChange($event)"
+    ></mat-paginator>
+  </div>
+</div>
+
